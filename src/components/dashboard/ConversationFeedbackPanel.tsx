@@ -5,7 +5,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
-import { Search, MessageSquare, Clock, X } from "lucide-react";
+import {
+  Search,
+  MessageSquare,
+  Clock,
+  X,
+  Copy,
+  CheckCircle2,
+} from "lucide-react";
 
 interface Message {
   id: string;
@@ -126,6 +133,7 @@ const ConversationFeedbackPanel = ({
   const [activeConversation, setActiveConversation] =
     useState<Conversation | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [copied, setCopied] = useState(false);
 
   // Get the first conversation for the selected user or the first conversation in the list
   useEffect(() => {
@@ -170,6 +178,28 @@ const ConversationFeedbackPanel = ({
     setActiveConversation(null);
   };
 
+  const copyConversation = () => {
+    if (!activeConversation) return;
+
+    const formattedConversation = activeConversation.messages
+      .map((message) => {
+        const sender =
+          message.sender === "user"
+            ? activeConversation.user.name
+            : "AI Assistant";
+        return `${sender} (${formatDate(message.timestamp)}):\n${message.content}`;
+      })
+      .join("\n\n");
+
+    navigator.clipboard
+      .writeText(formattedConversation)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch((err) => console.error("Failed to copy conversation:", err));
+  };
+
   return (
     <Card className="h-full w-full bg-white">
       <CardHeader className="pb-2">
@@ -201,6 +231,23 @@ const ConversationFeedbackPanel = ({
                   </p>
                 </div>
               </div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-1"
+                onClick={copyConversation}
+              >
+                {copied ? (
+                  <>
+                    <CheckCircle2 className="h-4 w-4 text-green-500" />
+                    <span>Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="h-4 w-4" />
+                  </>
+                )}
+              </Button>
             </div>
 
             <Separator className="my-2" />

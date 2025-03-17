@@ -45,7 +45,7 @@ const UserActivityTable = ({
   activities = [
     {
       id: "1",
-      username: "john_doe",
+      username: "John Doe",
       email: "john.doe@example.com",
       createdAt: "2023-05-15T14:30:00",
       messageCount: 42,
@@ -54,7 +54,7 @@ const UserActivityTable = ({
     },
     {
       id: "2",
-      username: "jane_smith",
+      username: "Jane Smith",
       email: "jane.smith@example.com",
       createdAt: "2023-05-14T09:15:00",
       messageCount: 28,
@@ -63,7 +63,7 @@ const UserActivityTable = ({
     },
     {
       id: "3",
-      username: "robert_johnson",
+      username: "Robert Johnson",
       email: "robert.j@example.com",
       createdAt: "2023-05-10T16:20:00",
       messageCount: 15,
@@ -72,7 +72,7 @@ const UserActivityTable = ({
     },
     {
       id: "4",
-      username: "emily_wilson",
+      username: "Emily Wilson",
       email: "emily.w@example.com",
       createdAt: "2023-05-15T11:05:00",
       messageCount: 37,
@@ -81,7 +81,7 @@ const UserActivityTable = ({
     },
     {
       id: "5",
-      username: "michael_brown",
+      username: "Michael Brown",
       email: "michael.b@example.com",
       createdAt: "2023-05-15T08:45:00",
       messageCount: 8,
@@ -90,7 +90,7 @@ const UserActivityTable = ({
     },
     {
       id: "6",
-      username: "sarah_davis",
+      username: "Sarah Davis",
       email: "sarah.d@example.com",
       createdAt: "2023-05-12T13:20:00",
       messageCount: 23,
@@ -98,7 +98,7 @@ const UserActivityTable = ({
     },
     {
       id: "7",
-      username: "david_miller",
+      username: "David Miller",
       email: "david.m@example.com",
       createdAt: "2023-05-11T10:15:00",
       messageCount: 19,
@@ -106,7 +106,7 @@ const UserActivityTable = ({
     },
     {
       id: "8",
-      username: "lisa_wilson",
+      username: "Lisa Wilson",
       email: "lisa.w@example.com",
       createdAt: "2023-05-09T14:45:00",
       messageCount: 31,
@@ -114,7 +114,7 @@ const UserActivityTable = ({
     },
     {
       id: "9",
-      username: "james_taylor",
+      username: "James Taylor",
       email: "james.t@example.com",
       createdAt: "2023-05-08T09:30:00",
       messageCount: 27,
@@ -122,7 +122,7 @@ const UserActivityTable = ({
     },
     {
       id: "10",
-      username: "jennifer_clark",
+      username: "Jennifer Clark",
       email: "jennifer.c@example.com",
       createdAt: "2023-05-07T16:10:00",
       messageCount: 34,
@@ -130,7 +130,7 @@ const UserActivityTable = ({
     },
     {
       id: "11",
-      username: "thomas_white",
+      username: "Thomas White",
       email: "thomas.w@example.com",
       createdAt: "2023-05-06T11:25:00",
       messageCount: 16,
@@ -138,7 +138,7 @@ const UserActivityTable = ({
     },
     {
       id: "12",
-      username: "amanda_harris",
+      username: "Amanda Harris",
       email: "amanda.h@example.com",
       createdAt: "2023-05-05T15:40:00",
       messageCount: 22,
@@ -146,7 +146,7 @@ const UserActivityTable = ({
     },
     {
       id: "13",
-      username: "kevin_martin",
+      username: "Kevin Martin",
       email: "kevin.m@example.com",
       createdAt: "2023-05-04T10:05:00",
       messageCount: 29,
@@ -154,7 +154,7 @@ const UserActivityTable = ({
     },
     {
       id: "14",
-      username: "laura_thompson",
+      username: "Laura Thompson",
       email: "laura.t@example.com",
       createdAt: "2023-05-03T14:20:00",
       messageCount: 18,
@@ -162,7 +162,7 @@ const UserActivityTable = ({
     },
     {
       id: "15",
-      username: "daniel_anderson",
+      username: "Daniel Anderson",
       email: "daniel.a@example.com",
       createdAt: "2023-05-02T09:15:00",
       messageCount: 25,
@@ -170,7 +170,7 @@ const UserActivityTable = ({
     },
     {
       id: "16",
-      username: "michelle_jackson",
+      username: "Michelle Jackson",
       email: "michelle.j@example.com",
       createdAt: "2023-05-01T13:30:00",
       messageCount: 33,
@@ -178,7 +178,7 @@ const UserActivityTable = ({
     },
     {
       id: "17",
-      username: "christopher_lee",
+      username: "Christopher Lee",
       email: "christopher.l@example.com",
       createdAt: "2023-04-30T10:45:00",
       messageCount: 21,
@@ -186,7 +186,7 @@ const UserActivityTable = ({
     },
     {
       id: "18",
-      username: "jessica_walker",
+      username: "Jessica Walker",
       email: "jessica.w@example.com",
       createdAt: "2023-04-29T15:10:00",
       messageCount: 26,
@@ -194,7 +194,7 @@ const UserActivityTable = ({
     },
     {
       id: "19",
-      username: "matthew_hall",
+      username: "Matthew Hall",
       email: "matthew.h@example.com",
       createdAt: "2023-04-28T11:35:00",
       messageCount: 30,
@@ -202,7 +202,7 @@ const UserActivityTable = ({
     },
     {
       id: "20",
-      username: "olivia_young",
+      username: "Olivia Young",
       email: "olivia.y@example.com",
       createdAt: "2023-04-27T14:50:00",
       messageCount: 24,
