@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Table,
   TableHeader,
@@ -10,6 +10,7 @@ import {
 } from "../ui/table";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import { Skeleton } from "../ui/skeleton";
 import {
   ArrowDown,
   ArrowUp,
@@ -222,6 +223,7 @@ const UserActivityTable = ({
   const [favoriteUsers, setFavoriteUsers] = useState<Record<string, boolean>>(
     {},
   );
+  const [isLoading, setIsLoading] = useState(false);
   const usersPerPage = 10;
 
   const handleSort = (column: string) => {
@@ -331,6 +333,17 @@ const UserActivityTable = ({
   ).slice(indexOfFirstUser, indexOfLastUser);
   const totalPages = Math.ceil(filteredActivities.length / usersPerPage);
 
+  // Handle page change with loading state
+  const handlePageChange = (newPage: number) => {
+    if (newPage === currentPage) return;
+
+    setIsLoading(true);
+    setTimeout(() => {
+      setCurrentPage(newPage);
+      setIsLoading(false);
+    }, 1000);
+  };
+
   return (
     <div className="w-full bg-white rounded-lg shadow-sm border border-gray-200">
       <div className="p-3 flex justify-between items-center gap-4 border-b border-gray-200">
@@ -439,7 +452,32 @@ const UserActivityTable = ({
             </TableRow>
           </TableHeader>
           <TableBody>
-            {currentUsers.length === 0 ? (
+            {isLoading ? (
+              Array(usersPerPage)
+                .fill(0)
+                .map((_, index) => (
+                  <TableRow key={`skeleton-${index}`}>
+                    <TableCell className="text-center">
+                      <Skeleton className="h-4 w-4 mx-auto" />
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex flex-col gap-1">
+                        <Skeleton className="h-4 w-32" />
+                        <Skeleton className="h-3 w-40" />
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <Skeleton className="h-4 w-20" />
+                    </TableCell>
+                    <TableCell>
+                      <Skeleton className="h-4 w-8" />
+                    </TableCell>
+                    <TableCell>
+                      <Skeleton className="h-4 w-16" />
+                    </TableCell>
+                  </TableRow>
+                ))
+            ) : currentUsers.length === 0 ? (
               <TableRow>
                 <TableCell
                   colSpan={5}
@@ -539,8 +577,8 @@ const UserActivityTable = ({
             variant="outline"
             size="sm"
             className="h-7 w-7 p-0"
-            onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-            disabled={currentPage === 1}
+            onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+            disabled={currentPage === 1 || isLoading}
           >
             <ChevronLeft className="h-3 w-3" />
           </Button>
@@ -549,9 +587,9 @@ const UserActivityTable = ({
             size="sm"
             className="h-7 w-7 p-0"
             onClick={() =>
-              setCurrentPage(Math.min(totalPages, currentPage + 1))
+              handlePageChange(Math.min(totalPages, currentPage + 1))
             }
-            disabled={currentPage === totalPages}
+            disabled={currentPage === totalPages || isLoading}
           >
             <ChevronRight className="h-3 w-3" />
           </Button>
